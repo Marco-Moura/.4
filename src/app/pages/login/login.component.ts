@@ -35,15 +35,17 @@ loginForm!: FormGroup;
       })
     }
 
-    submit(){
+    submit() {
       this.LoginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-        next: () => this.toastr.success("Login efetuado com sucesso"),
-        error: () => this.toastr.error("Erro inesperado! tente novamente mais tarde")
-      })
+        next: () => {
+          this.toastr.success("Login efetuado com sucesso");
+          //this.router.navigate(["/Default-home"]);
+          error: () => this.toastr.error("Erro inesperado! tente novamente mais tarde")
+        },
+      });
     }
 
     navigate(){
-      //this.router.navigate(["signup"])
-
+      this.router.navigate(["signup"])
     }
 }

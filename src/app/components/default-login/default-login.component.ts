@@ -1,9 +1,14 @@
+import { CommonModule } from '@angular/common';
+import { routes } from './../../app.routes';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from 'express';
 
 @Component({
   selector: 'app-default-login',
   standalone: true,
-  imports: [],
+  imports: [
+  ],
   templateUrl: './default-login.component.html',
   styleUrl: './default-login.component.scss'
 })
@@ -22,4 +27,5 @@ export class DefaultLoginComponent {
   navigate(){
     this.onNavigate.emit();
   }
+
 }
