@@ -20,6 +20,7 @@ export class DefaultLoginComponent {
   @Output("submit") onSubmit = new EventEmitter<void>();
   @Output("navigate") onNavigate = new EventEmitter();
 
+
   submit(){
     this.onSubmit.emit();
   }
@@ -27,5 +28,4 @@ export class DefaultLoginComponent {
   navigate(){
     this.onNavigate.emit();
   }
-
 }
