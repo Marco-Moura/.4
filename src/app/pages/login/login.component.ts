@@ -1,11 +1,11 @@
-import { ToastrConfig } from './../../../../node_modules/ngx-toastr/toastr/toastr-config.d';
 import { LoginService } from './../../services/login.service';
 import { Component } from '@angular/core';
 import { DefaultLoginComponent } from '../../components/default-login/default-login.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
