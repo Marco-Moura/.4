@@ -1,13 +1,22 @@
+import { ToastrConfig } from './../../../../node_modules/ngx-toastr/toastr/toastr-config.d';
+import { LoginService } from './../../services/login.service';
 import { Component } from '@angular/core';
 import { DefaultLoginComponent } from '../../components/default-login/default-login.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
+import { Router } from 'express';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     DefaultLoginComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PrimaryInputComponent
+  ],
+  providers: [
+    LoginService
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -15,10 +24,26 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class LoginComponent {
 loginForm!: FormGroup;
 
-    constructor(){
+    constructor(
+      private router: Router,
+      private LoginService: LoginService,
+      private toastr: ToastrService,
+    ){
       this.loginForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       })
+    }
+
+    submit(){
+      this.LoginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+        next: () => this.toastr.success("Login efetuado com sucesso"),
+        error: () => this.toastr.error("Erro inesperado! tente novamente mais tarde")
+      })
+    }
+
+    navigate(){
+      //this.router.navigate(["signup"])
+
     }
 }

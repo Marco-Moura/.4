@@ -12,5 +12,5 @@ import { LoginComponent } from './pages/login/login.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'projeto.4';
+  title = 'Ford-Project';
 }

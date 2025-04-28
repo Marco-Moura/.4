@@ -1,20 +1,20 @@
 <main>
   <section class="form-section">
-    <img src="/img/393-3932618_ford-commercial-vehicle-center-logo-hd-png-download-removebg-preview.png" alt="">
+    <img src="./assets/393-3932618_ford-commercial-vehicle-center-logo-hd-png-download-removebg-preview.png" alt="">
     <h2>{{ title }}</h2>
     <ng-content></ng-content>
     <div class="btn-wrapper">
-      <button class="btn-primary">{{ primaryBtnText }}</button>
+      <button class="btn-primary" (click)="submit()">{{ primaryBtnText }}</button>
       <div class="divider">
         <div></div>
         <span>or</span>
         <div></div>
       </div>
-      <button class="btn-secondary">{{ secondaryBtnText }}</button>
+      <button class="btn-secondary" (click)="navigate()">{{ secondaryBtnText }}</button>
     </div>
 
   </section>
   <section class="main-section">
-    <img src="/img/d56173858d2d072874c334127666d37e-removebg-preview.png" alt="a">
+    <img src="./assets/d56173858d2d072874c334127666d37e-removebg-preview.png" alt="">
   </section>
 </main>

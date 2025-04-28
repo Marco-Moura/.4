@@ -3,8 +3,26 @@
   title="Login into yout account"
   primaryBtnText="Login Now"
   secondaryBtnText="Create an account"
+  (submit)="submit()"
+  (navigate)="navigate()"
 >
   <form [formGroup]="loginForm">
+    <app-primary-input
+    formControlName="email"
+      inputName="email"
+      type="email"
+      label="email"
+      placeholder="seuemail@gmail.com"
+    >
+    </app-primary-input>
 
+    <app-primary-input
+    formControlName="password"
+    inputName="password"
+    type="password"
+    label="password"
+  >
+  </app-primary-input>
+  <span>forgot password?</span>
   </form>
 </app-default-login>
