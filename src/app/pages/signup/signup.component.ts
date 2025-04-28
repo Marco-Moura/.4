@@ -57,4 +57,8 @@ signupForm!: FormGroup;
       this.router.navigate(["login"])
 
     }
+
+    navigateHome(){
+      this.router.navigate(["Home"])
+    }
 }

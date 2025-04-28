@@ -19,6 +19,7 @@ export class DefaultLoginComponent {
   @Input() disablePrimaryBtn: boolean = true;
   @Output("submit") onSubmit = new EventEmitter<void>();
   @Output("navigate") onNavigate = new EventEmitter();
+  @Output("navigateHome") onNavigateHome = new EventEmitter();
 
 
   submit(){
@@ -27,5 +28,9 @@ export class DefaultLoginComponent {
 
   navigate(){
     this.onNavigate.emit();
+  }
+
+  navigateHome(){
+    this.onNavigateHome.emit();
   }
 }
