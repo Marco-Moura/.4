@@ -17,15 +17,15 @@ export class SidenavComponent {
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
     {
+      routeLink: 'home',
+      icon: 'fal fa-circle',
+      label: 'Home'
+    },
+    {
       routeLink: 'dashboard',
       icon: 'fal fa-home',
       label: 'Dashboard',
     },
-    {
-      routeLink: 'home',
-      icon: 'fal fa-circle',
-      label: 'Home'
-    }
   ];
 
   toggleCollapse(): void {
