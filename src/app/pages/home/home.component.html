@@ -1,5 +1,20 @@
-<app-side-bar (onToggleSideNav)="onToggleSideNav($event)"></app-side-bar>
-<app-body
-  [collapsed]="isSideNavCollapsed"
-  [screenWidth]="screenWidth"
-></app-body>
+<main>
+
+  <app-user-profile class="user">
+  </app-user-profile>
+
+<app-card class="card-page">
+
+</app-card>
+
+
+<app-sidenav
+[isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+(changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
+/>
+
+<app-main-side
+[isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+[screenWidth]="screenWidth()"
+/>
+</main>
