@@ -1,31 +1,45 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, Output, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { EventEmitter } from 'stream';
+import{ Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
+  standalone: true,
   imports: [
     RouterModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss'
 })
 export class SidenavComponent {
+
+  constructor(private Router: Router) { }
+
+  navigateDashboard(){
+    this.Router.navigate(['/dashboard'])
+  }
+
+  navigateHome(){
+    this.Router.navigate(['/home'])
+  }
+
   isLeftSidebarCollapsed = input.required<boolean>();
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
-    {
-      routeLink: 'home',
-      icon: 'fal fa-circle',
-      label: 'Home'
-    },
     {
       routeLink: 'dashboard',
       icon: 'fal fa-home',
       label: 'Dashboard',
     },
+  ];
+  items2 = [
+    {
+      routeLink: 'home',
+      icon: 'fal fa-home',
+      label: 'Home',
+    }
   ];
 
   toggleCollapse(): void {
@@ -35,7 +49,4 @@ export class SidenavComponent {
   closeSidenav(): void {
     this.changeIsLeftSidebarCollapsed.emit(true);
   }
-
-
-
 }

@@ -1,5 +1,9 @@
 import { Component, forwardRef, input, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule} from '@angular/forms';
+
 
 type InputTypes = "text" | "email" | "password"
 
@@ -7,9 +11,11 @@ type InputTypes = "text" | "email" | "password"
   selector: 'app-primary-input',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
   ],
   providers: [
+
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrimaryInputComponent),
@@ -20,10 +26,22 @@ type InputTypes = "text" | "email" | "password"
   styleUrl: './primary-input.component.scss'
 })
 export class PrimaryInputComponent implements ControlValueAccessor {
+nome: string = '';
+senha!: number;
+
   @Input() type: InputTypes = "text";
   @Input() placeholder: string = "";
   @Input() label: string = "";
   @Input() inputName: string = "";
+
+  constructor(private http: HttpClient) {
+  }
+
+  url = "http://localhost:3001/";
+
+  infoUrl() {
+    return this.http.post(`${this.url}/login`, {"nome": `${this.nome}` , "senha" : `${this.senha}`})
+  }
 
   value: string = ''
   onChange: any = () => {}

@@ -23,6 +23,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent {
 loginForm!: FormGroup;
+nome: string = '';
+senha!: number;
 
     constructor(
       private router: Router,

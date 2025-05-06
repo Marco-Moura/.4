@@ -13,8 +13,9 @@
     formControlName="email"
       inputName="email"
       type="email"
-      label="email"
-      placeholder="seuemail@gmail.com"
+      label="Name"
+      [(ngModel)]="nome"
+      placeholder="Digite seu Usuario"
     >
     </app-primary-input>
 
@@ -22,7 +23,9 @@
     formControlName="password"
     inputName="password"
     type="password"
-    label="password"
+    [(ngModel)]="senha"
+    label="Password"
+    placeholder="Digite sua senha"
   >
   </app-primary-input>
   <span>forgot password?</span>

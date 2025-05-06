@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:projeto.4": "node dist/projeto.4/server/server.mjs"
+    "serve:ssr:projeto.4": "node dist/projeto.4/server/server.mjs",
+    "api": "node src/api/index.js"
   },
   "private": true,
   "dependencies": {

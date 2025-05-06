@@ -8,6 +8,8 @@ import { Router } from 'express';
   selector: 'app-default-login',
   standalone: true,
   imports: [
+    CommonModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './default-login.component.html',
   styleUrl: './default-login.component.scss'
