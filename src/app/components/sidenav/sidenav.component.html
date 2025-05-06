@@ -21,7 +21,7 @@
           [routerLink]="item.routeLink"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
-          (click)="navigateDashboard()"
+          (click)="navigateHome()"
         >
           <i class="sidenav-link-icon" [class]="item.icon"></i>
           @if (!isLeftSidebarCollapsed()) {
@@ -37,7 +37,7 @@
           [routerLink]="item.routeLink"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
-          (click)="navigateHome()"
+          (click)="navigateDashboard()"
         >
           <i class="sidenav-link-icon" [class]="item.icon"></i>
           @if (!isLeftSidebarCollapsed()) {

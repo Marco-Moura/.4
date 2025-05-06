@@ -29,16 +29,17 @@ export class SidenavComponent {
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
     {
-      routeLink: 'dashboard',
+
+      routeLink: 'home',
       icon: 'fal fa-home',
-      label: 'Dashboard',
+      label: 'Home',
     },
   ];
   items2 = [
     {
-      routeLink: 'home',
-      icon: 'fal fa-home',
-      label: 'Home',
+      routeLink: 'dashboard',
+      icon: 'fa-solid fa-car',
+      label: 'Dashboard',
     }
   ];
 
