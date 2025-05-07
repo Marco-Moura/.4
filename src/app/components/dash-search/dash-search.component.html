@@ -1,0 +1,35 @@
+<main>
+  <div class="dashboard-footer">
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchVin"
+      placeholder="Digite o VIN do veículo"
+    />
+    <button (click)="onSearch()">Buscar</button>
+  </div>
+
+  <table *ngIf="vehicleData.length > 0">
+    <thead>
+      <tr>
+        <th>Código - Vin</th>
+        <th>Odômetro</th>
+        <th>Nível de Combustível</th>
+        <th>Status</th>
+        <th>Lat</th>
+        <th>Long</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of vehicleData">
+        <td>{{ searchVin }}</td>
+        <td>{{ vehicle.odometro }} km</td>
+        <td>{{ vehicle.nivelCombustivel }}%</td>
+        <td>{{ vehicle.status }}</td>
+        <td>{{ vehicle.lat }}</td>
+        <td>{{ vehicle.long }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</main>

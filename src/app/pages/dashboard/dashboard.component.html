@@ -1,4 +1,31 @@
 <main>
 
+  <app-dash-header>
+  </app-dash-header>
 
+  <app-dash-carshow>
+  </app-dash-carshow>
+
+
+
+
+  <app-user-profile class="user">
+  </app-user-profile>
+
+
+<app-sidenav
+[isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+(changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
+/>
+
+<app-main-side
+[isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+[screenWidth]="screenWidth()"
+/>
+
+<app-dash-search
+[searchVin]="searchVin"
+[vehicleData]="vehicleData"
+(search)="onSearch($event)"
+/>
 </main>
