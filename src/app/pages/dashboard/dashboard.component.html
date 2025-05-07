@@ -3,10 +3,8 @@
   <app-dash-header>
   </app-dash-header>
 
-  <app-dash-carshow>
+  <app-dash-carshow class="dash-card-show">
   </app-dash-carshow>
-
-
 
 
   <app-user-profile class="user">
@@ -23,9 +21,4 @@
 [screenWidth]="screenWidth()"
 />
 
-<app-dash-search
-[searchVin]="searchVin"
-[vehicleData]="vehicleData"
-(search)="onSearch($event)"
-/>
 </main>

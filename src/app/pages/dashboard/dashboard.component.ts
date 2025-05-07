@@ -2,10 +2,10 @@ import { VehicleService } from './../../services/vehicle.service';
 import { MainSideComponent } from './../../components/main-side/main-side.component';
 import { SidenavComponent } from './../../components/sidenav/sidenav.component';
 import { Component, Input, Output, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { UserProfileComponent } from '../../components/user-profile/user-profile.component';
 import { DashHeaderComponent } from "../../components/dash-header/dash-header.component";
 import { DashCarshowComponent } from "../../components/dash-carshow/dash-carshow.component";
-import { DashSearchComponent } from "../../components/dash-search/dash-search.component";
 
 
 @Component({
@@ -17,7 +17,6 @@ import { DashSearchComponent } from "../../components/dash-search/dash-search.co
     UserProfileComponent,
     DashHeaderComponent,
     DashCarshowComponent,
-    DashSearchComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -28,25 +27,34 @@ export class DashboardComponent {
   isLeftSidebarCollapsed = signal<boolean>(false);
   screenWidth = signal<number>(0); // inicializa com 0 ou valor default
 
-  changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {
-    this.isLeftSidebarCollapsed.set(isLeftSidebarCollapsed);
-  }
-
 
 
   constructor(private vehicleService: VehicleService) {}
+
+  changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {
+    this.isLeftSidebarCollapsed.set(isLeftSidebarCollapsed);
+  }
 
   ngOnInit(): void {}
 
   searchVin: string = '';
   vehicleData: any[] = [];
 
-  onSearch(vin: string) {
-    if (this.searchVin.trim()) {
-      this.vehicleService.getVehicleData(this.searchVin.trim()).subscribe({
-        next: (data) => this.vehicleData = [data],
-        error: (err) => alert(err.error.message || 'Erro ao buscar VIN'),
-      });
+  onSearch() {
+    if (!this.searchVin) {
+      alert('Digite um VIN!');
+      return;
     }
+
+    this.vehicleService.getVehicleData(this.searchVin).subscribe({
+      next: (data) => {
+        const vehicle = { ...data, vin: this.searchVin };
+        this.vehicleData = [vehicle];
+      },
+      error: (error) => {
+        alert(error.error?.message || 'Erro na requisição');
+        this.vehicleData = [];
+      }
+    });
   }
 }
