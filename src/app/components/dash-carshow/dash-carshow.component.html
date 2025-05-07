@@ -1,29 +1,37 @@
 <main>
   <div class="dashboard-container">
 
+    <!-- Caixa de Veículos -->
     <div class="dashboard-box">
-      <h3>Veiculos</h3>
-      <select class="dashboard-selector" name="" id="">
-        <option value=""></option>
-        <option value="">Mustang</option>
-        <option value="">Ranger</option>
-        <option value="">Territory</option>
-        <option value="">Bronco Sport</option>
+      <h3>Veículos</h3>
+      <select class="dashboard-selector" (change)="onVehicleSelect($event)">
+        <!-- A opção padrão -->
+        <option value="">Selecione um modelo</option>
+        <!-- Mostra todos os veículos da lista 'vehicles' -->
+        <option *ngFor="let v of vehicles" [value]="v.vehicle">{{ v.vehicle }}</option>
       </select>
     </div>
-    <div class="dashboard-box">
+
+    <!-- Caixa de Vendas (exibido quando um veículo for selecionado) -->
+    <div class="dashboard-box" *ngIf="selectedVehicle">
       <h3>Total de Vendas</h3>
-      <span class="unit">unid</span>
+      <span class="unit">{{ selectedVehicle.volumetotal }} unid</span>
     </div>
 
-    <div class="dashboard-box">
+    <!-- Caixa de Conectados (exibido quando um veículo for selecionado) -->
+    <div class="dashboard-box" *ngIf="selectedVehicle">
       <h3>Conectados</h3>
-      <span class="unit">unid</span>
+      <span class="unit">{{ selectedVehicle.connected }} unid</span>
     </div>
 
-    <div class="dashboard-box">
+    <!-- Caixa de Atualizações de Software (exibido quando um veículo for selecionado) -->
+    <div class="dashboard-box" *ngIf="selectedVehicle">
       <h3>Update Software</h3>
-      <span class="unit">unid</span>
+      <span class="unit">{{ selectedVehicle.softwareUpdates }} unid</span>
     </div>
+    <!-- <div>
+      <img *ngIf="selectedVehicle" src="{{selectedVehicle.img}}" alt="">
+    </div> -->
+
   </div>
 </main>
