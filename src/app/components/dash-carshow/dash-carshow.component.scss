@@ -1,7 +1,7 @@
 main {
   position: fixed;
   top: 20%;
-  left: 20%;
+  left: 13.5%;
 }
 
 .dashboard-container {
@@ -15,7 +15,7 @@ main {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  padding: 35px;
+  padding: 25px;
   width: 300px;
   text-align: center;
 }
@@ -44,4 +44,12 @@ main {
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
+}
+
+.img-selected-vehicle {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin-top: 16px;
+
 }

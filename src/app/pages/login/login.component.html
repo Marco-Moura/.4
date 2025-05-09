@@ -1,33 +1,29 @@
-
 <app-default-login
-  title="Login into yout account"
+  title="Login into your account"
   primaryBtnText="Login Now"
   secondaryBtnText="Create an account"
   (submit)="submit()"
   (navigate)="navigate()"
-  (navigateHome)="navigateHome()"
-  [disablePrimaryBtn]="loginForm.valid"
+  [disablePrimaryBtn]="!loginForm.valid"
 >
   <form [formGroup]="loginForm">
     <app-primary-input
-    formControlName="email"
-      inputName="email"
-      type="email"
-      label="Name"
-      [(ngModel)]="nome"
-      placeholder="Digite seu Usuario"
-    >
-    </app-primary-input>
+  formControlName="nome"
+  inputName="nome"
+  type="text"
+  label="Usuário"
+  placeholder="Digite seu usuário"
+></app-primary-input>
+
 
     <app-primary-input
-    formControlName="password"
-    inputName="password"
-    type="password"
-    [(ngModel)]="senha"
-    label="Password"
-    placeholder="Digite sua senha"
-  >
-  </app-primary-input>
-  <span>forgot password?</span>
+      formControlName="password"
+      inputName="password"
+      type="password"
+      label="Password"
+      placeholder="Digite sua senha"
+    ></app-primary-input>
+
+    <span (click)="navigateHome()">Forgot password?</span>
   </form>
 </app-default-login>

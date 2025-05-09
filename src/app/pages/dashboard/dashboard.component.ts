@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserProfileComponent } from '../../components/user-profile/user-profile.component';
 import { DashHeaderComponent } from "../../components/dash-header/dash-header.component";
 import { DashCarshowComponent } from "../../components/dash-carshow/dash-carshow.component";
+import { DashSearchComponent } from "../../components/dash-search/dash-search.component";
 
 
 @Component({
@@ -17,6 +18,7 @@ import { DashCarshowComponent } from "../../components/dash-carshow/dash-carshow
     UserProfileComponent,
     DashHeaderComponent,
     DashCarshowComponent,
+    DashSearchComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

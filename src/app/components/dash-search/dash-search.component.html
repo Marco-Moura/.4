@@ -1,0 +1,31 @@
+<main>
+  <div class="busca-container">
+      <input [(ngModel)]="vin" placeholder="Digite o código VIN" />
+      <button (click)="buscarDados()">Buscar</button>
+    </div>
+
+    <div class="table-container" *ngIf="dados.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>Código VIN</th>
+            <th>Odometro</th>
+            <th>Modal de Comercialização</th>
+            <th>Status</th>
+            <th>Lat</th>
+            <th>Long</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dados">
+            <td>{{ item.vin }}</td>
+            <td>{{ item.odometro }} Km</td>
+            <td>{{ item.nivelCombustivel }} %</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.lat }}</td>
+            <td>{{ item.long }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>

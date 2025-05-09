@@ -1,0 +1,39 @@
+main {
+  position: fixed;
+  bottom: 0;
+  left: 13.5%;
+}
+
+.busca-container {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 8px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #002b5c;
+  color: white;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #fff3;
+}
+
+thead {
+  background-color: #003b8b;
+}
+
+

@@ -22,11 +22,11 @@ export class DefaultLoginComponent {
   @Output("submit") onSubmit = new EventEmitter<void>();
   @Output("navigate") onNavigate = new EventEmitter();
   @Output("navigateHome") onNavigateHome = new EventEmitter();
+  @Output() submit = new EventEmitter<void>();
 
 
-  submit(){
-    this.onSubmit.emit();
-  }
+
+
 
   navigate(){
     this.onNavigate.emit();

@@ -32,20 +32,32 @@ senha!: number;
       private toastr: ToastrService,
     ){
       this.loginForm = new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        nome: new FormControl('', [Validators.required]),
+        password: new FormControl('', [Validators.required]),
       })
     }
 
     submit() {
-      this.LoginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+      if (this.loginForm.invalid) {
+        this.toastr.error("Preencha todos os campos corretamente!");
+        return;
+      }
+
+      const nome = this.loginForm.value.nome;
+      const senha = this.loginForm.value.password;
+
+
+      this.LoginService.login(nome, senha).subscribe({
         next: () => {
           this.toastr.success("Login efetuado com sucesso");
-          //this.router.navigate(["/Default-home"]);
-          error: () => this.toastr.error("Erro inesperado! tente novamente mais tarde")
+          this.router.navigate(["/home"]);
         },
+        error: () => {
+          this.toastr.error("Erro inesperado! Tente novamente mais tarde");
+        }
       });
     }
+
 
     navigate(){
       this.router.navigate(["signup"])
